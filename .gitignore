@@ -1,0 +1,74 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE / Editor
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+*.suo
+*.swp
+*.swo
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment / local config
+.env
+.env.*
+!.env.example
+!.env.development
+!.env.production
+*.local
+
+# Java / Maven / Spring Boot
+**/target/
+**/out/
+*.class
+*.jar
+*.war
+*.ear
+
+# Node / Frontend
+**/node_modules/
+**/dist/
+**/dist-ssr/
+**/.vite/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.orig
+
+# Runtime / pid
+*.pid
+*.seed
+
+# Coverage / reports
+coverage/
+**/coverage/
+reports/
+
+# Database / local data
+*.db
+*.sqlite
+*.sqlite3
+
+# Uploads / generated assets
+uploads/
+temp/
+
+# Project docs outputs
+docs/*.pptx
+
+# Keep SQL source files tracked by default
+!*.sql

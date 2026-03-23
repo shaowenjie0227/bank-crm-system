@@ -1,0 +1,10 @@
+﻿{
+    "code":  200,
+    "message":  "æä½æå",
+    "data":  {
+                 "token":  "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiLnrqHnkIblkZgiLCJpYXQiOjE3NjA1Mjk5OTIsImV4cCI6MTc2MDYxNjM5Mn0.HVKjxOECzynUS9_2iDCzV0ns23x3JsifAL0Jvm0rANgA4gLLFzY9XSzRc56zM7nYH9cfOp9RhCwxHH-beb0ESg",
+                 "username":  "admin",
+                 "role":  "ç®¡çå",
+                 "expiresIn":  86400000
+             }
+}

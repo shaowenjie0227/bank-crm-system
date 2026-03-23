@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>中文编码测试</title>
+</head>
+<body>
+    <h1>中文编码测试页面</h1>
+    <p>预期显示的中文：华为技术、ICT供应商、张经理、进行中</p>
+    <p>如果以下数据显示为乱码，说明编码配置仍有问题：</p>
+    <div id="test-data"></div>
+    
+    <script>
+        // 测试从后端获取的中文数据
+        fetch('http://localhost:8888/api/auth/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=UTF-8'
+            },
+            body: JSON.stringify({username: 'admin', password: '123456'})
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('登录响应:', data);
+            if (data.code === 200) {
+                return fetch('http://localhost:8888/api/development/list', {
+                    headers: {
+                        'Authorization': 'Bearer ' + data.data.token,
+                        'Content-Type': 'application/json;charset=UTF-8'
+                    }
+                });
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('开发计划列表:', data);
+            if (data.code === 200 && data.data.records.length > 0) {
+                const record = data.data.records[0];
+                document.getElementById('test-data').innerHTML = `
+                    <h3>第一条记录的中文数据：</h3>
+                    <p>企业客户名称: ${record.qydhName}</p>
+                    <p>企业客户行业: ${record.qydhGy}</p>
+                    <p>企业客户联系人: ${record.qydhLxr}</p>
+                    <p>企业客户计划状态: ${record.qykhJhzt}</p>
+                `;
+            }
+        })
+        .catch(error => {
+            console.error('错误:', error);
+            document.getElementById('test-data').innerHTML = '<p style="color: red;">获取数据失败: ' + error.message + '</p>';
+        });
+    </script>
+</body>
+</html>
